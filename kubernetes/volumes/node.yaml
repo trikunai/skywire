@@ -1,0 +1,29 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: node-pv-volume
+  labels:
+    type: local
+    app: node
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/tmp/data"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: node-pv-claim
+  labels:
+    app: node
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: manager 
+spec:
+  type: LoadBalancer
+  selector:
+    app: manager
+  ports:
+  - name: web-port 
+    port: 8000 
+    targetPort: 8000 
+  - name: address 
+    port: 5998 
+    targetPort: 5998 

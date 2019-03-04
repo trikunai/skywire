@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: manager
+  template:
+    metadata:
+      labels:
+        app: manager
+    spec:
+      containers:
+      - image: skycoin/skywire
+        name: manager
+        ports:
+          - name: web-port
+            containerPort: 8000
+          - name: address
+            containerPort: 5998
+        command: ["skywire-manager", "-web-dir", "/usr/local/skycoin/net/skycoin-messenger/monitor/web/dist-manager"]
