@@ -23,6 +23,51 @@ services:
     depends_on:
       - manager
     command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address discovery.skycoin.net:5999-034b1cd4ebad163e457fb805b3ba43779958bba49f2c5e1e8b062482904bacdb68
+  node3:
+    image: skycoin/skywire
+    environment:
+      VIRTUAL_HOST: node.skywire.com
+    volumes:
+      - skywire-data-3:/root/.skywire
+    depends_on:
+      - manager
+    command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address discovery.skycoin.net:5999-034b1cd4ebad163e457fb805b3ba43779958bba49f2c5e1e8b062482904bacdb68
+  node4:
+    image: skycoin/skywire
+    environment:
+      VIRTUAL_HOST: node.skywire.com
+    volumes:
+      - skywire-data-4:/root/.skywire
+    depends_on:
+      - manager
+    command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address discovery.skycoin.net:5999-034b1cd4ebad163e457fb805b3ba43779958bba49f2c5e1e8b062482904bacdb68
+  node5:
+    image: skycoin/skywire
+    environment:
+      VIRTUAL_HOST: node.skywire.com
+    volumes:
+      - skywire-data-5:/root/.skywire
+    depends_on:
+      - manager
+    command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address discovery.skycoin.net:5999-034b1cd4ebad163e457fb805b3ba43779958bba49f2c5e1e8b062482904bacdb68
+  node6:
+    image: skycoin/skywire
+    environment:
+      VIRTUAL_HOST: node.skywire.com
+    volumes:
+      - skywire-data-6:/root/.skywire
+    depends_on:
+      - manager
+    command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address discovery.skycoin.net:5999-034b1cd4ebad163e457fb805b3ba43779958bba49f2c5e1e8b062482904bacdb68
+  node7:
+    image: skycoin/skywire
+    environment:
+      VIRTUAL_HOST: node.skywire.com
+    volumes:
+      - skywire-data-7:/root/.skywire
+    depends_on:
+      - manager
+    command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address discovery.skycoin.net:5999-034b1cd4ebad163e457fb805b3ba43779958bba49f2c5e1e8b062482904bacdb68
   nginx:
     image: jwilder/nginx-proxy
     volumes:
@@ -36,3 +81,8 @@ services:
 volumes:
   skywire-data-1:
   skywire-data-2:
+  skywire-data-3:
+  skywire-data-4:
+  skywire-data-5:
+  skywire-data-6:
+  skywire-data-7:
