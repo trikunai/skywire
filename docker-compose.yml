@@ -7,14 +7,14 @@ services:
       - 8000:8000
     command: skywire-manager -web-dir /usr/local/skycoin/net/skycoin-messenger/monitor/web/dist-manager
     volumes:
-      - ./backup/volumes/manager:/root/.skywire
+      - ./rpi/manager:/root/.skywire
   node1:
     container_name: node1
     image: skycoin/skywire
     environment:
       VIRTUAL_HOST: node.skywire.com
     volumes:
-      - ./backup/volumes/skywire_skywire-data-1:/root/.skywire
+      - ./rpi/1:/root/.skywire
     depends_on:
       - manager
     command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address testnet.skywire.skycoin.com:5999-028ec969bdeb92a1991bb19c948645ac8150468a6919113061899051409de3f243
@@ -24,7 +24,7 @@ services:
     environment:
       VIRTUAL_HOST: node.skywire.com
     volumes:
-      - ./backup/volumes/skywire_skywire-data-2:/root/.skywire
+      - ./rpi/2:/root/.skywire
     depends_on:
       - manager
     command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address testnet.skywire.skycoin.com:5999-028ec969bdeb92a1991bb19c948645ac8150468a6919113061899051409de3f243
@@ -34,7 +34,7 @@ services:
     environment:
       VIRTUAL_HOST: node.skywire.com
     volumes:
-      - ./backup/volumes/skywire_skywire-data-3:/root/.skywire
+      - ./rpi/3:/root/.skywire
     depends_on:
       - manager
     command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address testnet.skywire.skycoin.com:5999-028ec969bdeb92a1991bb19c948645ac8150468a6919113061899051409de3f243
@@ -44,7 +44,7 @@ services:
     environment:
       VIRTUAL_HOST: node.skywire.com
     volumes:
-      - ./backup/volumes/skywire_skywire-data-4:/root/.skywire
+      - ./rpi/4:/root/.skywire
     depends_on:
       - manager
     command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address testnet.skywire.skycoin.com:5999-028ec969bdeb92a1991bb19c948645ac8150468a6919113061899051409de3f243
@@ -54,7 +54,7 @@ services:
     environment:
       VIRTUAL_HOST: node.skywire.com
     volumes:
-      - ./backup/volumes/skywire_skywire-data-5:/root/.skywire
+      - ./rpi/5:/root/.skywire
     depends_on:
       - manager
     command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address testnet.skywire.skycoin.com:5999-028ec969bdeb92a1991bb19c948645ac8150468a6919113061899051409de3f243
@@ -64,7 +64,7 @@ services:
     environment:
       VIRTUAL_HOST: node.skywire.com
     volumes:
-      - ./backup/volumes/skywire_skywire-data-6:/root/.skywire
+      - ./rpi/6:/root/.skywire
     depends_on:
       - manager
     command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address testnet.skywire.skycoin.com:5999-028ec969bdeb92a1991bb19c948645ac8150468a6919113061899051409de3f243
@@ -74,20 +74,20 @@ services:
     environment:
       VIRTUAL_HOST: node.skywire.com
     volumes:
-      - ./backup/volumes/skywire_skywire-data-7:/root/.skywire
+      - ./rpi/7:/root/.skywire
     depends_on:
       - manager
     command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address testnet.skywire.skycoin.com:5999-028ec969bdeb92a1991bb19c948645ac8150468a6919113061899051409de3f243
-  node8:
-    container_name: node8
-    image: skycoin/skywire
-    environment:
-      VIRTUAL_HOST: node.skywire.com
-    volumes:
-      - ./backup/volumes/skywire_skywire-data-8:/root/.skywire
-    depends_on:
-      - manager
-    command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address testnet.skywire.skycoin.com:5999-028ec969bdeb92a1991bb19c948645ac8150468a6919113061899051409de3f243
+  # node8:
+  #   container_name: node8
+  #   image: skycoin/skywire
+  #   environment:
+  #     VIRTUAL_HOST: node.skywire.com
+  #   volumes:
+  #     - ./rpi/8:/root/.skywire
+  #   depends_on:
+  #     - manager
+  #   command: skywire-node -connect-manager -manager-address manager:5998 -manager-web manager:8000 -address :5000 -web-port :6001 -discovery-address testnet.skywire.skycoin.com:5999-028ec969bdeb92a1991bb19c948645ac8150468a6919113061899051409de3f243
   nginx:
       container_name: nginx-proxy
       image: jwilder/nginx-proxy
